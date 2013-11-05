@@ -11,4 +11,10 @@
     <include file="changesets/2013-11-05.3.xml" relativeToChangelogFile="true"/>
     <include file="changesets/2013-11-05.4.xml" relativeToChangelogFile="true"/>
 
+
+    <!--Stored procedures come here -they are a little different since we are not really-->
+    <!--interested in the order of their execution. Thus we leverage  the 'runOnChange' attribute-->
+    <!--of the changesets for the SPs, and import them separately here.-->
+    <include file="storedprocs/searchForProduct.xml" relativeToChangelogFile="true"/>
+
 </databaseChangeLog>
