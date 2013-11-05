@@ -6,7 +6,34 @@
         xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
          http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-2.0.xsd">
 
-    <changeSet id="2" author="alexander.cherednichenko">
+    <changeSet id="4" author="alexander.cherednichenko">
+        <!--In here, we would need to drop column. -->
+        <!--However, it is a bad idea really to drop column, is the action -->
+        <!--is non-recoverable. -->
+        <!---->
+        <!--Thus we will record the column values to the new column, with name 'deleted', -->
+        <!--and will get this data in 'rollback' part-->
+        <addColumn tableName="product">
+            <!--This could have gone (better) to a separate table-->
+            <column name="type_DELETED" type="varchar(255)"/>
+        </addColumn>
+        <sql>
+            UPDATE
+            product
+            SET
+            type_DELETED=type
+        </sql>
+        <dropColumn tableName="product" columnName="type"/>
+
+        <rollback>
+            <addColumn tableName="product">
+                <column name="type" type="varchar(255)"></column>
+            </addColumn>
+            <sql>
+                UPDATE product SET type=type_DELETED
+            </sql>
+            <dropColumn tableName="product" columnName="type_DELETED"/>
+        </rollback>
     </changeSet>
 
 </databaseChangeLog>
