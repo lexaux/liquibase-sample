@@ -22,4 +22,4 @@ java -jar $SCRIPTDIR/lib/liquibase.jar \
      --url="$JDBC_URL" \
      --username="$JDBC_USER" \
      --password="$JDBC_PASSWORD" \
-     migrate
+     $@
