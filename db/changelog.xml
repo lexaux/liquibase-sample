@@ -16,6 +16,8 @@
 
     <include file="changesets/2014-04-04.acherednichenko.uat.1.xml" relativeToChangelogFile="true"/>
 
+    <include file="changesets/2014-04-04.3.acherednichenko.xml" relativeToChangelogFile="true"/>
+
 
 
 
