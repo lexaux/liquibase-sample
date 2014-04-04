@@ -14,6 +14,9 @@
     <include file="changesets/2014-04-04.1.acherednichenko.xml" relativeToChangelogFile="true"/>
     <include file="changesets/2014-04-04.2.acherednichenko.xml" relativeToChangelogFile="true"/>
 
+    <include file="changesets/2014-04-04.acherednichenko.uat.1.xml" relativeToChangelogFile="true"/>
+
+
 
 
     <!--Stored procedures come here -they are a little different since we are not really-->
